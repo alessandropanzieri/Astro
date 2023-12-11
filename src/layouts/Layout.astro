@@ -1,5 +1,31 @@
 ---
+export interface Props {
+    title?: string
+    description?: string
+}
+
+const {
+    title = "Alessandro Panzieri",
+    description = ""
+} = Astro.props
 ---
 
-<style>
-</style>
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>{title}</title>
+        <meta charset = "UTF-8"/>
+        <meta name = "description" content = {description}/>
+        <meta name = "generator" content = {Astro.generator}/>
+        <meta name = "viewport" content = "width = device-width"/>
+        <link rel = "icon" type = "image/png" href = "/favicon.png"/>
+        <meta property = "og:type" content = "website"/>
+        <meta property = "og:url" content = {Astro.url}/>
+        <meta property = "og:image" content = "/thumbnail.png"/>
+        <meta property = "og:title" content = {title}/>
+        <meta property = "og:description" content = {description}/>
+    </head>
+    <body>
+        <slot/>
+    </body>
+</html>
